@@ -2,23 +2,33 @@
 # If they score between 7 and 9 they receive another chance.
 # If they score below 7 they fail.
 
+# Functions
+
+def check_errors(numbers):
+    for number in numbers:
+        if not number.isdigit():
+            print("Burro do caralho, coloca um número")
+            exit() 
+
+def pass_or_fail (score):
+    if score >= 10:
+        return "Congratulations, you passed! 🚀"
+    if score < 7:
+        return "You suck 🤡"
+    else:
+        return "You'll get another chance"
+
+# Execution
+
 input_receiver = input("Enter a sequence of numbers, separated by commas: ")
 
-# def check_errors(input_receiver):
-#     if not isdigit(input_receiver): 
-#         Print("Burro do caralho, coloca um número") 
-
-# check_errors(input_receiver)
-
 numbers = input_receiver.split(",")
+
+check_errors(numbers)
 
 numbers = [int(number) for number in numbers]
 
 # total = sum(numbers)
-
-print(numbers)
-
-print(type(numbers))
 
 for number in numbers:
     print(type(number))
@@ -31,15 +41,12 @@ for number in numbers:
 
 score = sum_numbers
 
-def pass_or_fail (score):
-    if score >= 10:
-        return "Congratulations, you passed! 🚀"
-    if score < 7:
-        return "You suck 🤡"
-    else:
-        return "You'll get another chance"
-    
+print(numbers)
+
+print(type(numbers))
+
 print(pass_or_fail(score))
+
 
 
 
