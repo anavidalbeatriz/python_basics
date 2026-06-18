@@ -1,3 +1,6 @@
+import logging
+logger = logging.getLogger(__name__)
+
 # This is a sum of scores from a student. If the student scores more than 10, they pass. 
 # If they score between 7 and 9 they receive another chance.
 # If they score below 7 they fail.
@@ -18,6 +21,11 @@ def pass_or_fail (score):
     else:
         return "You'll get another chance"
 
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
+
 # Execution
 
 input_receiver = input("Enter a sequence of numbers, separated by commas: ")
@@ -37,13 +45,13 @@ sum_numbers = 0
 for number in numbers:
     sum_numbers += number
 
-# print(sum_numbers)
-
 score = sum_numbers
 
-print(numbers)
+logger.debug(number)
 
-print(type(numbers))
+logger.debug(numbers)
+
+logger.debug(type(numbers))
 
 print(pass_or_fail(score))
 
